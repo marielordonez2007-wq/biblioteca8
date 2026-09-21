@@ -83,7 +83,6 @@ def pantalla_login():
         if enviado:
             if password != confirmar:
                 st.error("Las contrasenas no coinciden.")
-            elif "Seleccione una pregunta" in (pregunta1, pregunta2):
                 
             else:
                 resultado, error = db.crear_usuario(
