@@ -15,8 +15,6 @@ from datetime import date, timedelta
 ARCHIVO_DATOS = "biblioteca.db"
 DIAS_PRESTAMO = 7
 MAX_LIBROS = 5
-
-PREGUNTAS_SEGURIDAD = 
 # ============================================================
 # DATOS INICIALES
 # ============================================================
