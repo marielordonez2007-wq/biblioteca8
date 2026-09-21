@@ -79,23 +79,15 @@ def pantalla_login():
             telefono = st.text_input("Telefono")
             password = st.text_input("Contrasena", type="password")
             confirmar = st.text_input("Confirmar contrasena", type="password")
-            st.write("Preguntas de seguridad (2)")
-            opciones = ["Seleccione una pregunta"] + PREGUNTAS_SEGURIDAD
-            pregunta1 = st.selectbox("Pregunta 1", opciones, key="reg_p1")
-            respuesta1 = st.text_input("Respuesta 1", key="reg_r1")
-            pregunta2 = st.selectbox("Pregunta 2", opciones, key="reg_p2")
-            respuesta2 = st.text_input("Respuesta 2", key="reg_r2")
-            enviado = st.form_submit_button("Registrarme", type="primary")
+           
         if enviado:
             if password != confirmar:
                 st.error("Las contrasenas no coinciden.")
             elif "Seleccione una pregunta" in (pregunta1, pregunta2):
-                st.error("Debe seleccionar las dos preguntas de seguridad.")
+                
             else:
                 resultado, error = db.crear_usuario(
-                    nombre, nombre_usuario, telefono, password,
-                    [pregunta1, pregunta2],
-                    [respuesta1, respuesta2]
+                    nombre, nombre_usuario, telefono, password
                 )
                 if error:
                     st.error(error)
@@ -114,8 +106,6 @@ def pantalla_login():
                 usuario = db.buscar_usuario_login(nombre_usuario)
                 if usuario is None:
                     st.error("No se encontro el nombre de usuario.")
-                elif not usuario.get("pregunta_seguridad") or not usuario.get("pregunta_seguridad_2"):
-                    st.error("Esta cuenta no tiene configuradas las dos preguntas de seguridad.")
                 else:
                     st.session_state.recuperacion_usuario = usuario["usuario"]
                     st.rerun()
