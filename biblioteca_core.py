@@ -16,15 +16,7 @@ ARCHIVO_DATOS = "biblioteca.db"
 DIAS_PRESTAMO = 7
 MAX_LIBROS = 5
 
-PREGUNTAS_SEGURIDAD = [
-    "Cual es el nombre de tu primera mascota?",
-    "Cual es tu comida favorita?",
-    "Cual es el nombre de tu mejor amigo de infancia?",
-    "Cual es tu lugar favorito?",
-    "Cual era tu materia favorita en la escuela?",
-]
-
-
+PREGUNTAS_SEGURIDAD = 
 # ============================================================
 # DATOS INICIALES
 # ============================================================
